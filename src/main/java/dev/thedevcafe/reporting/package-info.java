@@ -1,6 +1,6 @@
 /**
  * Reporting for the management dashboard.
  * <p>
- * Nothing is implemented here yet. See {@code README.md} in this folder for the open ticket.
+ * {@link dev.thedevcafe.reporting.DailyRevenueReportService}: daily revenue per product (DEVCAFE-142).
  */
 package dev.thedevcafe.reporting;
