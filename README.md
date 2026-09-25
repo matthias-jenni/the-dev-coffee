@@ -36,6 +36,7 @@ On first start, Flyway creates the schema and seeds test data (~200k orders, ~40
 | `GET` | `/api/customers/{id}/orders` | A customer's café order history |
 | `POST` | `/api/sales` | Record an online-shop sale: `{"productId": 17, "quantity": 1}` |
 | `GET` | `/api/sales/{id}` | One sale |
+| `GET` | `/api/reports/daily-revenue?from=2026-03-01&to=2026-03-31` | Daily revenue per product (dashboard) |
 
 ## Project layout
 
