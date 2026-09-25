@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: the-dev-cafe
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/devcoffee
+    username: coffeeuser
+    password: coffeepass
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+
+devcafe:
+  shop-time-zone: Europe/Zurich
+  analytics:
+    # Set to true to simulate the analytics service being down.
+    outage: false
+
+logging:
+  level:
+    root: INFO
+    # Uncomment to log every SQL statement Hibernate sends to the database.
+    # org.hibernate.SQL: DEBUG
+    # org.hibernate.orm.jdbc.bind: TRACE

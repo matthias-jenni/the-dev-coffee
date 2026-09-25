@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/ruby:3.3
+FROM mcr.microsoft.com/devcontainers/java:25-bookworm
 
-RUN mkdir /workspace
+RUN mkdir -p /workspace
 WORKDIR /workspace

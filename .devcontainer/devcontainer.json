@@ -1,11 +1,13 @@
 {
-  "name": "PostgreSQL & pgAdmin",
+  "name": "The Dev Café",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "forwardPorts": [
-    5050
-  ],
+  "forwardPorts": [8080, 5050],
+  "portsAttributes": {
+    "8080": { "label": "The Dev Café API" },
+    "5050": { "label": "pgAdmin (SQL console)" }
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "moby": false
@@ -14,10 +16,13 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot",
         "ms-azuretools.vscode-docker"
       ]
     }
   },
+  "postCreateCommand": "./mvnw -q -DskipTests dependency:go-offline",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
   ],

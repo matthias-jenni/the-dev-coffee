@@ -2,8 +2,16 @@ services:
   app:
     build: .
     command: tail -f /dev/null
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
     volumes:
       - ./:/workspace:cached
+      - maven-repo:/root/.m2
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
 
   pgadmin:
     image: dpage/pgadmin4:9.18
@@ -31,7 +39,7 @@ services:
       - db
 
   db:
-    image: postgres:12.19
+    image: postgres:17
     restart: always
     environment:
       POSTGRES_USER: coffeeuser
@@ -39,6 +47,8 @@ services:
       POSTGRES_DB: devcoffee
     volumes:
       - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
 
 configs:
   pgadmin-servers:
@@ -63,3 +73,4 @@ configs:
 volumes:
   pgadmin-data:
   pg-data:
+  maven-repo:

@@ -1,6 +1,17 @@
 .idea
+*.iml
+*.iws
+*.ipr
+.vscode/
+target/
+.mvn/wrapper/maven-wrapper.jar
 tmp
 tmp/*
 pgdata
 pgdata/*
 *.log
+.DS_Store
+
+# Interviewer-only material (contains expected answers) - never commit
+interview_script_*.md
+interview_solution_*.md
