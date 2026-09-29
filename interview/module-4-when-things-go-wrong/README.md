@@ -15,6 +15,9 @@ To see it live, start the app with the analytics service "down":
 
 ```sh
 ./mvnw spring-boot:run -Dspring-boot.run.arguments=--devcafe.analytics.outage=true
+```
+
+```sh
 curl -i -X POST http://localhost:8080/api/sales -H 'Content-Type: application/json' -d '{"productId": 17, "quantity": 1}'
 ```
 
